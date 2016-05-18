@@ -774,7 +774,7 @@ namespace Radegast
                 {
                     try
                     {
-                        //System.IO.File.Delete(i);
+                        System.IO.File.Delete(i);
                         Logger.Log(String.Format("Delete asset cache item \"{0}\"", i), Helpers.LogLevel.Info);
                     }
                     catch (Exception ex)
@@ -814,7 +814,6 @@ namespace Radegast
                 }
             });
             deleteInventoryCacheStatus.Visible = false;
-            WorkPool
         }
     }
 }

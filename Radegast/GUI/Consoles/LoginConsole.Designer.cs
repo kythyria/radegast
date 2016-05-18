@@ -243,8 +243,8 @@ namespace Radegast
             // 
             // proLogin
             // 
-            this.proLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.proLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.proLogin.Location = new System.Drawing.Point(0, 62);
             this.proLogin.MarqueeAnimationSpeed = 50;
             this.proLogin.Name = "proLogin";
@@ -254,8 +254,8 @@ namespace Radegast
             // 
             // lblLoginStatus
             // 
-            this.lblLoginStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLoginStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLoginStatus.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoginStatus.Location = new System.Drawing.Point(3, 0);
             this.lblLoginStatus.Name = "lblLoginStatus";
@@ -288,7 +288,7 @@ namespace Radegast
             // 
             // pnlSplash
             // 
-            this.pnlSplash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlSplash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pnlSplash.Controls.Add(this.pnlTos);
             this.pnlSplash.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSplash.Location = new System.Drawing.Point(0, 0);
@@ -320,9 +320,9 @@ namespace Radegast
             // 
             // txtTOS
             // 
-            this.txtTOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTOS.Location = new System.Drawing.Point(0, 0);
             this.txtTOS.Multiline = true;
             this.txtTOS.Name = "txtTOS";
