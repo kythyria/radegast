@@ -136,6 +136,11 @@ namespace Radegast
             this.autoSitUUID = new System.Windows.Forms.TextBox();
             this.autoSitName = new System.Windows.Forms.TextBox();
             this.autoSitNameLabel = new System.Windows.Forms.Label();
+            this.tcCache = new System.Windows.Forms.TabPage();
+            this.deleteAssetCacheStatus = new System.Windows.Forms.Label();
+            this.clearAssetCache = new System.Windows.Forms.Button();
+            this.clearInventoryCaches = new System.Windows.Forms.Button();
+            this.deleteInventoryCacheStatus = new System.Windows.Forms.Label();
             this.tcGraphics.SuspendLayout();
             this.tbpGeneral.SuspendLayout();
             this.cbHighLight.SuspendLayout();
@@ -151,6 +156,7 @@ namespace Radegast
             this.pseudoHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pseudoHomeTolerance)).BeginInit();
             this.autoSit.SuspendLayout();
+            this.tcCache.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcGraphics
@@ -159,6 +165,7 @@ namespace Radegast
             this.tcGraphics.Controls.Add(this.tbpAutoResponse);
             this.tcGraphics.Controls.Add(this.tbpGraphics);
             this.tcGraphics.Controls.Add(this.tbpBot);
+            this.tcGraphics.Controls.Add(this.tcCache);
             this.tcGraphics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcGraphics.Location = new System.Drawing.Point(0, 0);
             this.tcGraphics.Multiline = true;
@@ -1034,14 +1041,75 @@ namespace Radegast
             this.autoSitNameLabel.Text = "Name";
             this.autoSitNameLabel.Click += new System.EventHandler(this.autoSitNameLabel_Click);
             // 
+            // tcCache
+            // 
+            this.tcCache.Controls.Add(this.deleteInventoryCacheStatus);
+            this.tcCache.Controls.Add(this.deleteAssetCacheStatus);
+            this.tcCache.Controls.Add(this.clearAssetCache);
+            this.tcCache.Controls.Add(this.clearInventoryCaches);
+            this.tcCache.Location = new System.Drawing.Point(4, 22);
+            this.tcCache.Name = "tcCache";
+            this.tcCache.Padding = new System.Windows.Forms.Padding(3);
+            this.tcCache.Size = new System.Drawing.Size(522, 427);
+            this.tcCache.TabIndex = 5;
+            this.tcCache.Text = "Cache";
+            this.tcCache.UseVisualStyleBackColor = true;
+            // 
+            // deleteAssetCacheStatus
+            // 
+            this.deleteAssetCacheStatus.AutoSize = true;
+            this.deleteAssetCacheStatus.Location = new System.Drawing.Point(191, 40);
+            this.deleteAssetCacheStatus.Name = "deleteAssetCacheStatus";
+            this.deleteAssetCacheStatus.Size = new System.Drawing.Size(37, 13);
+            this.deleteAssetCacheStatus.TabIndex = 2;
+            this.deleteAssetCacheStatus.Text = "Status";
+            this.deleteAssetCacheStatus.Visible = false;
+            // 
+            // clearAssetCache
+            // 
+            this.clearAssetCache.Location = new System.Drawing.Point(8, 35);
+            this.clearAssetCache.Name = "clearAssetCache";
+            this.clearAssetCache.Size = new System.Drawing.Size(177, 23);
+            this.clearAssetCache.TabIndex = 1;
+            this.clearAssetCache.Text = "Clear asset cache";
+            this.clearAssetCache.UseVisualStyleBackColor = true;
+            this.clearAssetCache.Click += new System.EventHandler(this.clearAssetCache_Click);
+            // 
+            // clearInventoryCaches
+            // 
+            this.clearInventoryCaches.Location = new System.Drawing.Point(8, 6);
+            this.clearInventoryCaches.Name = "clearInventoryCaches";
+            this.clearInventoryCaches.Size = new System.Drawing.Size(177, 23);
+            this.clearInventoryCaches.TabIndex = 0;
+            this.clearInventoryCaches.Text = "Clear inventory caches";
+            this.clearInventoryCaches.UseVisualStyleBackColor = true;
+            this.clearInventoryCaches.Click += new System.EventHandler(this.clearInventoryCaches_Click);
+            // 
+            // deleteInventoryCacheStatus
+            // 
+            this.deleteInventoryCacheStatus.AutoSize = true;
+            this.deleteInventoryCacheStatus.Location = new System.Drawing.Point(191, 11);
+            this.deleteInventoryCacheStatus.Name = "deleteInventoryCacheStatus";
+            this.deleteInventoryCacheStatus.Size = new System.Drawing.Size(37, 13);
+            this.deleteInventoryCacheStatus.TabIndex = 3;
+            this.deleteInventoryCacheStatus.Text = "Status";
+            this.deleteInventoryCacheStatus.Visible = false;
+            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 453);
             this.Controls.Add(this.tcGraphics);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(546, 492);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(546, 492);
             this.Name = "frmSettings";
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Settings - Radegast";
             this.tcGraphics.ResumeLayout(false);
             this.tbpGeneral.ResumeLayout(false);
@@ -1067,6 +1135,8 @@ namespace Radegast
             ((System.ComponentModel.ISupportInitialize)(this.pseudoHomeTolerance)).EndInit();
             this.autoSit.ResumeLayout(false);
             this.autoSit.PerformLayout();
+            this.tcCache.ResumeLayout(false);
+            this.tcCache.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1150,5 +1220,10 @@ namespace Radegast
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.CheckBox cbResolveURIs;
         private System.Windows.Forms.CheckBox cbConfirmExit;
+        private System.Windows.Forms.TabPage tcCache;
+        private System.Windows.Forms.Button clearAssetCache;
+        private System.Windows.Forms.Button clearInventoryCaches;
+        private System.Windows.Forms.Label deleteAssetCacheStatus;
+        private System.Windows.Forms.Label deleteInventoryCacheStatus;
     }
 }

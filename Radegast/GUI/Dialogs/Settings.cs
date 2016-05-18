@@ -36,6 +36,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using OpenMetaverse;
@@ -744,5 +745,76 @@ namespace Radegast
             s["on_script_question"] = cbAutoScriptPermission.Text;
         }
 
+        private async void clearAssetCache_Click(object sender, EventArgs e)
+        {
+            // Radegast puts extra stuff in the cache and changes how the naming is done anyway, so this wouldn't work
+            //Client.Assets.Cache.Clear();
+
+            deleteAssetCacheStatus.Text = "Clearing asset cache";
+            deleteAssetCacheStatus.Visible = true;
+
+            await Task.Run(() => {
+                RecursiveBestEffortDeleteDirectory(RadegastInstance.GlobalInstance.Client.Settings.ASSET_CACHE_DIR);
+            });
+
+            deleteAssetCacheStatus.Visible = false;
+        }
+
+        private static void RecursiveBestEffortDeleteDirectory(string dir)
+        {
+            var children = System.IO.Directory.GetFileSystemEntries(dir);
+            foreach(var i in children)
+            {
+                var attributes = System.IO.File.GetAttributes(i);
+                if(attributes.HasFlag(System.IO.FileAttributes.Directory) && !attributes.HasFlag(System.IO.FileAttributes.ReparsePoint))
+                {
+                    RecursiveBestEffortDeleteDirectory(i);
+                }
+                else
+                {
+                    try
+                    {
+                        //System.IO.File.Delete(i);
+                        Logger.Log(String.Format("Delete asset cache item \"{0}\"", i), Helpers.LogLevel.Info);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Log(String.Format("Failed to delete asset cache item \"{0}\": {1}", i, ex.Message), Helpers.LogLevel.Warning, ex);
+                    }
+                }
+            }
+            try
+            {
+                System.IO.Directory.Delete(dir);
+                Logger.Log(String.Format("Delete asset cache item \"{0}\"", dir), Helpers.LogLevel.Info);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(String.Format("Failed to delete asset cache item \"{0}\": {1}", dir, ex.Message), Helpers.LogLevel.Warning, ex);
+            }
+        }
+
+        private async void clearInventoryCaches_Click(object sender, EventArgs e)
+        {
+            deleteInventoryCacheStatus.Text = "Deleting inventory cache";
+            deleteInventoryCacheStatus.Visible = true;
+
+            // TODO: Better place to put this?
+            await Task.Run(() => {
+                foreach (var i in System.IO.Directory.EnumerateFileSystemEntries(Instance.UserDir, "inventory.cache", System.IO.SearchOption.AllDirectories))
+                {
+                    try
+                    {
+                        System.IO.File.Delete(i);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Log(String.Format("Failed to delete inventory cache \"{0}\"", i), Helpers.LogLevel.Warning, ex);
+                    }
+                }
+            });
+            deleteInventoryCacheStatus.Visible = false;
+            WorkPool
+        }
     }
 }
